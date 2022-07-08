@@ -89,3 +89,23 @@ matches: 403600 operation complete in `1.666s`
 matches: 403600 operation complete in `1.654s`
 
 matches: 403600 operation complete in `1.634s`
+
+---
+`GO`
+```sh
+.\grep.exe frog ../poem.txt
+```
+matches: 403600
+operation complete in: `188ms`
+
+matches: 403600
+operation complete in: `182ms`
+
+matches: 403600
+operation complete in: `185ms`
+
+matches: 403600
+operation complete in: `189ms`
+
+matches: 403600
+operation complete in: `190ms`
