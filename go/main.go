@@ -2,22 +2,29 @@ package main
 
 import (
 	"bufio"
+	"bytes"
 	"fmt"
+	"io"
 	"os"
-	"strings"
 	"time"
 )
 
-func search(query string, file string) []string {
+func search(query string, fileName string) []string {
 	var results []string
-	f, _ := os.Open(file)
+	file, _ := os.Open(fileName)
 
-	defer f.Close()
-	scanner := bufio.NewScanner(f)
-	for scanner.Scan() {
-		line := scanner.Text()
-		if strings.Contains(line, query) {
-			results = append(results, line)
+	queryBytes := []byte(query)
+
+	defer file.Close()
+	reader := bufio.NewReader(file)
+	for {
+		path, _, e := reader.ReadLine()
+		if e == io.EOF {
+			break
+		}
+		match := bytes.Contains(path, queryBytes)
+		if match {
+			results = append(results, string(query))
 		}
 	}
 	return results
