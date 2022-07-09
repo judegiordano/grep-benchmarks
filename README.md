@@ -45,15 +45,15 @@ matches: 403600 operation complete in `78.504ms`
 python main.py frog ../poem.txt
 ```
 
-matches: 403600 operation complete in `445.0 ms`
+matches: 403600 operation complete in `390.0 ms`
 
-matches: 403600 operation complete in `445.63 ms`
+matches: 403600 operation complete in `385.0 ms`
 
-matches: 403600 operation complete in `443.1 ms`
+matches: 403600 operation complete in `386.0 ms`
 
-matches: 403600 operation complete in `443.04 ms`
+matches: 403600 operation complete in `386.96 ms`
 
-matches: 403600 operation complete in `454.29 ms`
+matches: 403600 operation complete in `386.02 ms`
 
 ---
 

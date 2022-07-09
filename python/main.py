@@ -9,16 +9,15 @@ start = time.time_ns()
 query = sys.argv[1]
 file = sys.argv[2]
 
-data = open(file, "r").readlines()
-
-def search(query, data):
+def search(query, file):
     results = []
-    for line in data:
-        if query in line:
-            results.append(line)
+    with open(file) as FileObj:
+        for line in FileObj:
+            if query in line:
+                results.append(line)
     return results
 
-results = search(query, data)
+results = search(query, file)
 
 end = time.time_ns()
 print('matches:', len(results))
