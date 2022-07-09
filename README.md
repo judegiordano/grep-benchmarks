@@ -23,6 +23,7 @@ matches: 403600 operation complete in `469.377ms`
 `RUST`
 
 ```sh
+cargo build --release
 ./target/release/grep.exe frog ../poem.txt
 ```
 
@@ -59,18 +60,19 @@ matches: 403600 operation complete in `454.29 ms`
 `CSHARP`
 
 ```sh
+dotnet publish
 .\bin\Debug\net6.0\publish\chsarp.exe frog ../poem.txt
 ```
 
-matches: 403600 operation complete in `295 ms`
+matches: 403600 operation complete in `262 ms`
 
-matches: 403600 operation complete in `295 ms`
+matches: 403600 operation complete in `265 ms`
 
-matches: 403600 operation complete in `296 ms`
+matches: 403600 operation complete in `273 ms`
 
-matches: 403600 operation complete in `307 ms`
+matches: 403600 operation complete in `276 ms`
 
-matches: 403600 operation complete in `287 ms`
+matches: 403600 operation complete in `278 ms`
 
 ---
 
@@ -93,6 +95,7 @@ matches: 403600 operation complete in `1.634s`
 ---
 `GO`
 ```sh
+go build
 .\grep.exe frog ../poem.txt
 ```
 matches: 403600

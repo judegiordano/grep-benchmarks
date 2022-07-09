@@ -1,16 +1,23 @@
 ﻿using System.Diagnostics;
 using System.IO;
+using System.Text;
 
 internal class Program
 {
     private static List<String> Search(String query, String file)
     {
         List<String> results = new List<String>();
-        foreach (string line in File.ReadLines(file))
+
+        using (var fileStream = File.OpenRead(file))
+        using (var streamReader = new StreamReader(fileStream, Encoding.UTF8))
         {
-            if (line.Contains(query))
+            String? line;
+            while ((line = streamReader.ReadLine()) is not null)
             {
-                results.Add(line);
+                if (line.Contains(query))
+                {
+                    results.Add(line);
+                }
             }
         }
         return results;
