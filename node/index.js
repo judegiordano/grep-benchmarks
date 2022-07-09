@@ -1,27 +1,20 @@
 const fs = require("fs");
-const path = require("path");
+const es = require("event-stream");
 
-console.time('operation complete in');
+console.time("operation complete in");
 
 const query = process.argv[2];
 const file = process.argv[3];
 
-const filePath = path.resolve('../', file);
-
-const data = fs.readFileSync(filePath).toString();
-
-function search(query, data) {
-    const matches = [];
-    const lines = data.split(/\r?\n/);
-    for (let i = 0; i < lines.length; i++) {
-        if (lines[i].split(" ").includes(query)) {
-            matches.push(lines[i]);
+const matches = []
+fs.createReadStream(file).pipe(es.split()).pipe(
+    es.mapSync((line) => {
+        if (line.indexOf(query) >= 0) {
+            matches.push(line);
         }
-    }
-    return matches;
-}
-
-const results = search(query, data);
-
-console.log("matches: ", results.length);
-console.timeEnd('operation complete in');
+    })
+        .on("end", () => {
+            console.log("matches: ", matches.length);
+            console.timeEnd("operation complete in");
+        })
+)

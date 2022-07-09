@@ -8,15 +8,15 @@ file length 4,036,000 lines
 node . frog ../poem.txt
 ```
 
-matches: 403600 operation complete in `1.541s`
+matches: 403600 operation complete in `471.737ms`
 
-matches: 403600 operation complete in `1.546s`
+matches: 403600 operation complete in `468.603ms`
 
-matches: 403600 operation complete in `1.542s`
+matches: 403600 operation complete in `482.273ms`
 
-matches: 403600 operation complete in `1.547s`
+matches: 403600 operation complete in `473.751ms`
 
-matches: 403600 operation complete in `1.539s`
+matches: 403600 operation complete in `469.377ms`
 
 ---
 
