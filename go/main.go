@@ -24,7 +24,7 @@ func search(query string, fileName string) []string {
 		}
 		match := bytes.Contains(path, queryBytes)
 		if match {
-			results = append(results, string(query))
+			results = append(results, string(path))
 		}
 	}
 	return results

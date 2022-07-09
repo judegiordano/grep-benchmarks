@@ -96,16 +96,16 @@ matches: 403600 operation complete in `1.634s`
 .\grep.exe frog ../poem.txt
 ```
 matches: 403600
+operation complete in: `124ms`
+
+matches: 403600
+operation complete in: `126ms`
+
+matches: 403600
+operation complete in: `124ms`
+
+matches: 403600
 operation complete in: `122ms`
 
 matches: 403600
-operation complete in: `118ms`
-
-matches: 403600
-operation complete in: `118ms`
-
-matches: 403600
-operation complete in: `120ms`
-
-matches: 403600
-operation complete in: `119ms`
+operation complete in: `127ms`
