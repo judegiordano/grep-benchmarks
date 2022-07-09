@@ -7,3 +7,4 @@ edition = "2021"
 
 [dependencies]
 memchr = { version = "2", default-features = false }
+grep = "0.2.8"

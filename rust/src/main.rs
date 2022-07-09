@@ -1,5 +1,29 @@
+use grep::{matcher::Matcher, regex::RegexMatcher, searcher::sinks::UTF8, searcher::Searcher};
 use memchr::memmem::{self, Finder};
-use std::{env::{self, Args}, fs::read_to_string, time::{Instant, Duration}};
+use std::{
+    env::{self, Args},
+    fs::read_to_string,
+    time::{Duration, Instant},
+};
+
+pub fn grep_search(query: &str, filename: &str) -> Vec<(u64, String)> {
+    let contents: String = read_to_string(String::from(filename)).unwrap();
+    let matcher: RegexMatcher = RegexMatcher::new(query).unwrap();
+    let mut results: Vec<(u64, String)> = vec![];
+    #[allow(unused_must_use)]
+    {
+        Searcher::new().search_slice(
+            &matcher,
+            contents.as_bytes(),
+            UTF8(|l_num, line| {
+                let found = matcher.find(line.as_bytes())?.unwrap();
+                results.push((l_num, line[found].to_string()));
+                Ok(true)
+            }),
+        );
+    }
+    results
+}
 
 pub fn get_file_contents(query: &str, filename: &str) {
     let contents: String = read_to_string(String::from(filename)).unwrap();
