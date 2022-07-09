@@ -6,6 +6,7 @@ use std::{
     time::{Duration, Instant},
 };
 
+// very fast, but kind of cheating so excluded from results
 pub fn grep_search(query: &str, filename: &str) -> Vec<(u64, String)> {
     let contents: String = read_to_string(String::from(filename)).unwrap();
     let matcher: RegexMatcher = RegexMatcher::new(query).unwrap();
@@ -27,7 +28,7 @@ pub fn grep_search(query: &str, filename: &str) -> Vec<(u64, String)> {
 
 pub fn get_file_contents(query: &str, filename: &str) {
     let contents: String = read_to_string(String::from(filename)).unwrap();
-    let results: Vec<&str> = search(&query, &contents);
+    let results: Vec<&str> = search(query, &contents);
     println!("matches: {:#?}", results.len());
 }
 
@@ -35,7 +36,7 @@ pub fn search<'a>(query: &'a str, content: &'a str) -> Vec<&'a str> {
     let needle: Finder = memmem::Finder::new(query);
     let mut results: Vec<&str> = vec![];
     for line in content.lines() {
-        if let Some(_) = needle.find(line.as_bytes()) {
+        if needle.find(line.as_bytes()).is_some() {
             results.push(line)
         }
     }

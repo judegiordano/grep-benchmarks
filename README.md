@@ -26,15 +26,15 @@ matches: 403600 operation complete in `1.539s`
 ./target/release/grep.exe frog ../poem.txt
 ```
 
-matches: 403600 operation complete in `120.9365ms`
+matches: 403600 operation complete in `78.4785ms`
 
-matches: 403600 operation complete in `120.8149ms`
+matches: 403600 operation complete in `78.9137ms`
 
-matches: 403600 operation complete in `121.6225ms`
+matches: 403600 operation complete in `78.8427ms`
 
-matches: 403600 operation complete in `121.0709ms`
+matches: 403600 operation complete in `91.945ms`
 
-matches: 403600 operation complete in `127.6297ms`
+matches: 403600 operation complete in `78.504ms`
 
 ---
 
